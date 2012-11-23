@@ -1,0 +1,71 @@
+[(#REM)
+	Barre de navigation, ouverte sur la hierarchie courante
+
+	On fait un plan, et, quand on avance vers une rubrique,
+	on l'affiche si son parent est expose ou est la racine du site. ]
+#SET{id_trad,#ARRAY}	
+<B_rubriques>
+
+	<ul id="navi">
+	<BOUCLE_rubriques(RUBRIQUES) {racine} {id_rubrique !IN 16,15}{par num titre, titre}{tout}>
+		<li class="item menu-entree">
+			<a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>[(#TITRE|couper{80})]</a>
+			<B_articles>
+			<ul  id="subnavi">
+				<BOUCLE_articles(ARTICLES) {id_rubrique}{si (#ENV{id_rubrique}|=={#ID_RUBRIQUE}|oui)}{origine_traduction}{!par date}>
+					[(#ID_TRAD|!=={0}|oui)
+						#SET{id_trad,#GET{id_trad}|array_merge{#ARRAY{#COMPTEUR_BOUCLE,#ID_TRAD}}}
+						]
+					<B_trad>
+					<li>[(#DESCRIPTIF|sinon{#TITRE}|replace{'</p>',''}|replace{'<p>',<br/>})]
+					<BOUCLE_trad(ARTICLES){traduction}{par lang}{doublons}>
+						<a class="text normal"  href="#URL_ARTICLE">[(#LANG|traduire_nom_langue)]</a>
+					</BOUCLE_trad>
+					</li>
+					</B_trad>	
+				</BOUCLE_articles>
+				<BOUCLE_breves(BREVES){id_rubrique}{!par date}>
+					<li class="text">
+						<a class="normal"  href="#URL_BREVE">#TITRE</a>
+					</li>
+				</BOUCLE_breves>
+			</ul>
+			</B_articles>
+			<B_sous_rubriques>
+			<ul  id="subnavi">
+
+				<BOUCLE_sous_rubriques(RUBRIQUES) {id_parent} {tout} {par num titre, titre}><BOUCLE_test_expose(RUBRIQUES) {id_enfant}>#EXPOSE{' '}</BOUCLE_test_expose>
+					<li class="item menu-entree"><a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>[(#TITRE|couper{80})]</a><BOUCLE_re(BOUCLE_sous_rubriques)></BOUCLE_re>	</li>
+				</B_test_expose></BOUCLE_sous_rubriques>
+
+				
+			</ul>
+			</B_sous_rubriques>
+
+		</li>
+	</BOUCLE_rubriques>
+	<BOUCLE_rub_ext(RUBRIQUES){id_rubrique IN 16,15}{tout}>
+		<li class="text">
+			<a href="#URL_RUBRIQUE">#TITRE</a>
+		</li>
+	</BOUCLE_rub_ext>
+	<li class="colonne_extra">
+		<div class="buchlein">
+			<a href="http://www.revolver-books.de/w3NoM.php?nodeId=438" onclick="window.open(this.href, 'revolver', 'height=660, width=462, top=100, left=100, toolbar=no, menubar=no, location=no, resizable=yes, scrollbars=yes, status=no'); return false;">	
+				<img src="#CHEMIN{css/img/groeting_cover.jpg}" width="50" height="70" border="0" alt="Asta Gr&ouml;ting The Inner Voice" title="Asta Gr&ouml;ting The Inner Voice"/>
+			</a>
+		</div>
+		
+		<div class="buchlein">
+			<a href="http://www.henry-moore-fdn.co.uk/hmf/shop/hmi-new-publications/asta-groting-sculpture-1987--2008" onclick="window.open(this.href, 'henry-moore', 'height=780, width=780, top=100, left=100, toolbar=no, menubar=no, location=no, resizable=yes, scrollbars=yes, status=no'); return false;">	
+				<img src="#CHEMIN{css/img/hmi_cover.jpg}" width="100" height="71" border="0" alt="Asta Gr&ouml;ting Sculpture: 1987-2008" title="Asta Gr&ouml;ting Sculpture: 1987-2008"/>
+			</a>
+		</div>
+		
+		<div class="buchlein">
+		<a href="http://www.astagroeting.de/pages/nbk-katalog.html" onclick="window.open(this.href, 'nbk', 'height=600, width=400, top=100, left=100, toolbar=no, menubar=no, location=no, resizable=yes, scrollbars=yes, status=no'); return false;">		
+			<img src="#CHEMIN{css/img/nbk-cover_k.jpg}" width="80" height="114" border="0" alt="n.b.k. Asta Gr&ouml;ting" title="n.b.k. Asta Gr&ouml;ting"/>
+		</a></div>
+	</li>
+	</ul>
+</B_rubriques>

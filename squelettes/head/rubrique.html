@@ -1,0 +1,19 @@
+<BOUCLE_article_head(ARTICLES) {id_article}>
+<title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+[<meta name="description" content="(#INTRODUCTION{150}|attribut_html)" />]
+[<link rel="canonical" href="(#URL_ARTICLE|url_absolue)" />]
+</BOUCLE_article_head>
+	<BOUCLE_breve_principal(BREVES) {id_breve}>
+	<title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+	[<meta name="description" content="(#INTRODUCTION{150}|attribut_html)" />]
+	[<link rel="canonical" href="(#URL_BREVE|url_absolue)" />]
+	</BOUCLE_breve_principal>	
+		<BOUCLE_rubrique_head(RUBRIQUES) {id_rubrique}>
+		<title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+		[<meta name="description" content="(#INTRODUCTION{150}|textebrut)" />]
+		[<link rel="canonical" href="(#URL_RUBRIQUE|url_absolue)" />]
+		[(#REM) Lien vers le flux RSS de la rubrique ]
+		<link rel="alternate" type="application/rss+xml" title="<:syndiquer_rubrique:>" href="[(#URL_PAGE{backend}|parametre_url{id_rubrique,#ID_RUBRIQUE})]" />
+		</BOUCLE_rubrique_head>
+	<//B_breve_principal>
+<//B_article_head>

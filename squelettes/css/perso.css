@@ -1,0 +1,635 @@
+/* -- CSS definition for ASTA GRTING by Maria Linares --- */
+
+
+body {
+font-size: 12px;
+font-family: Courier New, Times New Roman, serif;
+scrollbar-color: #999999;
+scrollbar-track-color: #cccccc;
+}
+
+#page-wrap { 
+	min-width: 780px;
+	max-width: 1460px;
+	margin: 0px auto 0px 0px;
+	width:expression(document.body.clientWidth < 782? "780px" : document.body.clientWidth > 1462? "1460px" : "auto");
+	}
+	#page-wrap #inside {
+		margin: 0px;
+		padding:0px;
+	}
+
+
+h1 {
+font-family: Courier New, Times New Roman, serif;
+margin-bottom: 0px;
+font-size: 34px;
+font-weight: lighter;
+}
+
+h1 a,
+h1 a:link,
+h1 a:visited,
+h1 a:hover,
+h1 a:active,
+h1 a:focus {
+	text-decoration:none;
+	color:#000;
+}
+
+
+/* ----------- NAVI ------------ */
+
+ul#navi {
+	float: left;
+	font-size:100%;
+	letter-spacing:0.05em;
+	padding:0px 0px;
+	margin:20px 0px;
+	text-align:left;
+}
+
+ul#navi a,
+ul#navi a:link,
+ul#navi a:visited {
+	text-decoration:none;
+	color:#000;
+}
+
+ul#navi a:focus,
+ul#navi a:active,
+ul#navi a:hover {
+	text-decoration:underline;
+	color:#00c;
+}
+
+ul#navi li {
+	list-style-type:none;
+	background:url(img/ordner.gif) no-repeat;
+	background-position:left top;
+	margin:0px 10px 0px 5px;
+	padding:0px 12px 6px 25px;
+}
+
+ul#navi li.text {
+	list-style-type:none;
+	background:url(img/text.gif) no-repeat;
+	background-position:left top;
+	margin:0px 10px 0px 5px;
+	padding:0px 12px 6px 25px;
+}
+
+ul#subnavi {
+	margin:8px 0px 2px 0px; 
+	padding:0px;
+	font-size:100%;
+	font-weight:normal;
+}
+
+ul#subnavi a,
+ul#subnavi a:link,
+ul#subnavi a:visited {
+	text-decoration:none;
+	color:#000;
+}
+
+ul#subnavi a:focus,
+ul#subnavi a:active,
+ul#subnavi a:hover {
+	text-decoration:underline;
+	color:#00c;
+}
+
+ul#subnavi li {
+	list-style:none;
+	margin:6px 0 6px 5px;
+	padding:0 0 0 25px;
+	background:url(img/ordner.gif) no-repeat;
+	background-position:left top;
+}
+
+.text {
+	padding:0 0 0 20px;
+	background:url(img/text.gif) no-repeat;
+	background-position:left top;
+}
+
+.blau {
+	text-decoration:underline;
+	color:#00c;
+}
+
+.blau a,
+.blau a:link,
+.blau a:visited {
+	text-decoration:underline;
+	color:#00c;
+}
+
+.blau a:focus,
+.blau a:active,
+.blau a:hover {
+	text-decoration:underline;
+	color:#00c;
+}
+
+.buchlein {
+	padding-top:10px;
+	padding-left:20px;
+}
+
+
+
+/* ----------- CONTENT ------------ */
+
+
+p {
+	font-size:125%;
+}
+
+h2 {
+	font-family: Courier New, Times New Roman, serif;
+	font-size: 150%;
+	font-weight: lighter;
+}
+
+h3, .surtitle {
+	font-family: Courier New, Times New Roman, serif;
+	font-size: 120%;
+	font-weight: lighter;
+}
+
+
+
+.footnote {
+	font-size:70%;
+	vertical-align:top;
+}
+
+#main-content {
+	padding-left: 450px;
+}
+
+#main-contentWorks {
+	padding-left:180px;
+	padding-top:25px;
+}
+
+#main-contentPerformance {
+	padding-left:280px;
+	padding-top:25px;
+}
+
+.iframe {
+	height:80%;
+	width:90%;
+	border:1px dashed #ccc;
+}
+
+.impressum {
+	height:80%;
+	width:90%;
+	border:1px dashed #ccc;
+}
+
+ul#works {
+	margin:5px 0px 0px 0px; 
+	padding:0px;
+}
+
+ul#works a,
+ul#works a:link,
+ul#works a:visited {
+	text-decoration:none;
+	border:0;
+}
+
+ul#works a:focus,
+ul#works a:active,
+ul#works a:hover {
+	text-decoration:none;
+	border:0;
+}
+
+ul#works li {
+	float:left;
+	list-style:none;
+	margin:0 0 0 5px;
+	padding:0 0 0 5px;
+}
+
+.foto {
+	clear:both;
+	margin:0px;
+	padding:10;
+}
+
+#content {
+	margin:5px 10px 0 20px;
+	padding:10px 10px 0px 10px;
+	text-align:left;
+	letter-spacing:0.01em;
+	font-weight:normal;
+	color:#000;
+}
+
+#content a, 
+#content a:link, 
+#content a:visited {
+	color:#00e;
+	text-decoration:underline;
+}
+
+
+#content a:focus, 
+#content a:hover, 
+#content a:active {
+	color:#00c;
+	text-decoration:underline;
+}
+
+#whiteContent {
+	margin:20px 10px 10px 0px;
+	padding:10px 4px 4px 4px;
+	border:1px dotted #ccc;
+	min-height:120px;
+	background-color:#fff;
+}
+
+#content p {
+	margin:20px 10px 10px 0px;
+	padding:10px 4px 4px 4px;
+}
+
+#projectsList {
+	float:left;
+	margin:0;
+	padding:0;
+}
+
+#projectsList li {
+	list-style: none;
+	margin:0;
+	padding:0 0 100px 0;
+	text-align:center;
+}
+
+#projectsList li a, 
+#projectsList li a:link, 
+#projectsList li a:visited {
+	color:#00e;
+	text-decoration:underline;
+}
+
+
+#projectsList li a:focus, 
+#projectsList li a:hover, 
+#projectsList li a:active {
+	color:#00c;
+	text-decoration:underline;
+}
+
+#projectsList li a.enabled, 
+#projectsList li a:link.enabled, 
+#projectsList li a:visited.enabled,
+#projectsList li a:focus.enabled, 
+#projectsList li a:hover.enabled, 
+#projectsList li a:active.enabled {
+	color:#999;
+	text-decoration:none;
+}
+
+#drawingList {
+	float:left;
+	margin:0;
+	padding:0 0 0 70px;
+}
+
+#drawingList li {
+	list-style: none;
+	margin:0;
+	padding:0 0 100px 0;
+	text-align:center;
+}
+
+.enabled {
+	color:#ccc;
+}
+
+#Einzeldarstellung {
+	position:fixed;
+	top:0px; left:550px;
+}
+
+.numberList {
+	clear:both;
+	margin:20px 0 10px 0;
+	padding:0px 8px;
+}
+
+#Captions {
+	margin:0;
+	padding:0 0 0 380px;
+}
+
+#Captions li {
+	list-style:none;
+	margin:0 0 72px 0;
+	padding:0;
+	text-align:left;
+	height:270px;
+	width:520px;
+}
+
+.iframePerformance {
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+}
+
+#fr_videos {
+	float:left;
+	margin:0;
+	padding:0;
+}
+
+#fr_videos li {
+	list-style: none;
+	margin:0;
+	padding:0 0 100px 0;
+	width:320px;
+	height:240px;
+}
+
+ul.internalList {
+	margin:5px 0 0 15px;
+	padding:0;
+	font-size:90%;
+	letter-spacing:-0.05em;
+}
+
+ul.internalList li {
+	list-style-image:url(img/list_square.gif);
+	margin:0;
+	padding:3px;
+}
+
+.einzelText {
+	margin:0;
+	padding:0 8px;
+}
+
+.singeImage {
+	float:left;
+	padding:0 10px 10px 0;
+	margin:0;
+}
+
+ul.description {
+	padding:10px 0 0 0;
+	clear:both;
+}
+
+ul.description li {
+	float:left;
+	width:47%;
+	padding:0 20px 0 0;
+	list-style:none;
+}
+
+#audio {
+	float:left;
+	margin:0;
+	padding:0;
+}
+
+#audio li {
+	list-style: none;
+	margin:0 0 20px 0;
+	padding:0;
+}
+
+.clear {
+	clear:both;
+	padding:0px;
+	margin:0px;
+	height:10px;
+}
+
+.klein {
+	font-size:90%;
+	letter-spacing:-0.05em;
+}
+
+.red {
+	color:#c69e70;
+}
+
+.bio {
+	font-size:100%;
+}
+
+.optimized {
+padding: 100px 0 0 20px;
+}
+
+.requirements {
+	margin-top:255px;
+}
+
+/*.white {
+	background-color:#000;
+	color:#fff;
+}*/
+
+/*div {border:1px solid red;}
+ul {border:1px solid blue;}*/
+
+
+
+/*---- form ------------------------------------------*/
+
+.page{height:100%; width:100%}
+
+.contact {
+	width:450px;
+	padding:10px 10px 0px 0px;
+	margin:10px 0px 0px 0px;
+ 	color:#000;
+	text-align:left;
+	font-size:100%;
+}
+
+#content>.contact {
+	padding:10px 10px 20px 10px;
+	margin-top:10px;
+}
+
+.contact td {
+	vertical-align:top;
+	padding-top:10px;
+	padding-left:10px;
+	text-align:right;
+}
+
+textarea {
+	font-size:100%;
+
+}
+
+
+input, textarea {
+        background-color:#fff;
+        border:#000 1px solid;
+        font-family:Courier, Tahoma;
+        color:#000;
+        width:100%;
+}
+
+
+
+input:focus, 
+textarea:focus,
+input:hover,
+textarea:hover {
+        background-color:#fff;
+        border:#c69e70 1px solid;
+    
+}
+
+
+
+input.senden {
+	width:100px;
+}
+/*---------------------------------------------------------*/
+
+
+
+/*Rainer*/
+
+#navi a{text-transform: lowercase;}
+
+ul#navi li.colonne_extra{
+	background:none;
+	margin:0;
+	padding:0;
+}
+
+#navi a.normal{text-transform: none;}
+.pagination { 
+text-align: left;
+}
+
+.pagination .lien_pagination { 
+border: 0px none #F0F0F0;
+margin:  0 5px 0 0;
+padding: 0;
+text-decoration: underline;
+}
+
+.pagination .lien_pagination:hover, .pagination .lien_pagination:active { 
+border: 0px none #444444;
+}
+
+.pagination .on { 
+	background-color: transparent;
+	border: 0px none #222222;
+	text-decoration:none;
+	color:#000000;
+	font-weight: normal;
+	margin: 0 5px 0 0;
+	padding: 0;
+}
+.numberList { 
+	padding: 0;
+}
+
+
+
+#main-content #Einzeldarstellung{
+
+	display:block;
+    width: 90%;
+	position:relative;
+	height:auto;
+	right:10px;
+	left:0
+}
+
+#main-content .einzelText{
+	font-size:130%;
+	border: 1px dashed #CCCCCC;
+	height:80%;
+	overflow:auto;
+	margin-bottom:200px;
+	margin-right:5%; 
+	position:fixed;
+	right:10px; 
+	left: 450px;
+
+
+}
+
+.einzelText .surtitle{
+	margin-bottom:0;
+	margin-top:0.5em
+}
+
+.einzelText h3{
+
+	margin-top:0
+}
+
+
+.einzelText { 
+	padding: 0px;
+}
+
+.einzelText p { 
+font-size: 100%;
+margin: 1em 0;
+clear:both;
+}
+
+#projectsList .einzelText{
+	position:absolute;
+	left: 400px;
+	top :0;
+	width: 450px;
+	text-align:left;
+}
+
+#projectsList li {position:relative}
+
+.spip_doc_descriptif { 
+float:left;
+}
+
+ul#subnavi li { 
+max-width:350px;
+}
+.h1, #hierarchie, form span{display:none;}
+
+form ul{margin-left:0;padding-left:20px}
+
+form .text{background:none;padding:0}
+
+form li{list-style:none;font-size:90%; text-align:right}
+
+label {float:left;clear:both}
+
+input, textarea{float:right; width:80%; margin:5px 10px 5px 0; padding:0}
+
+input.submit{clear:both;width : 50px}
+
+
+.markItUp .markItUpHeader ul a em {
+    color: transparent;
+    text-indent: 0
+}
+.footnote{
+margin-top:10px;
+border-top:#7F7F7F 1px solid dotted
+}

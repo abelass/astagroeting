@@ -1,0 +1,32 @@
+#SET{video_dist,#ARRAY{0,dist_daily,1,dist_vimeo,2,dist_youtu}}
+#SET{video_local,#ARRAY{0,flv,1,ogg,2,mp4}}
+#SET{videos,#GET{video_dist}|array_merge{#GET{video_local}}}
+
+<div id="Einzeldarstellung">
+<BOUCLE_article(ARTICLES){id_article}>#SET{date,#DATE}	
+	<B_img>
+		<div class="numberList pagination">[(#PAGINATION{simple}|sinon{1})]</div>			
+		<BOUCLE_img(DOCUMENTS){id_article}{extension IN png,jpg,gif}{pagination 1}{si #ENV{afficher_image}|!={non}|oui}{mode=document}{!par date}{doublons}>
+		[(#FICHIER|image_reduire{500,*}|inserer_attribut{alt,#FICHIER})]
+		</BOUCLE_img>
+	<//B_img>
+	<div class="einzelText">
+		[<div class="#EDIT{surtitre} surtitle">(#SURTITRE)</div>]
+		[<h3 class="#EDIT{titre}">(#TITRE)</h3>]
+		[<div class="date">(#GET{date}|affdate{Y})</div>]
+		[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
+		[<div class="footnote">(#NOTES)</p>]				
+	</div>
+</BOUCLE_article>
+	<BOUCLE_rubrique(RUBRIQUES){id_rubrique}{tout}>
+		<div class="#EDIT{texte} einzelText">
+			#TEXTE
+		</div>
+	</BOUCLE_rubrique>
+<//B_article>
+	<BOUCLE_breve(BREVES){id_breve}>
+		<div class="#EDIT{texte} einzelText">
+			#TEXTE
+		</div>
+	</BOUCLE_breve>
+

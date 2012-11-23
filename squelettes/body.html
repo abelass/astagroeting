@@ -1,0 +1,11 @@
+<body>
+	<section class="page">
+		<header id="header"><INCLURE{fond=header/#ENV{type-page},env} /></header>
+		<nav id="nav"><INCLURE{fond=inclure/nav,env} /></nav>
+		<section class="container" role="main">
+			<div  id="main-content#CLASS">
+			<INCLURE{fond=content/#ENV{type-page},env,ajax} />
+			</div>
+		</section>
+	</section>
+</body>

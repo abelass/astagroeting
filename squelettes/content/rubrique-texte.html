@@ -1,0 +1,13 @@
+
+<BOUCLE_content(RUBRIQUES){id_rubrique}{tout}>
+<article class="content-principal">
+	<header class="cartouche">
+		<h2 class="h2 #EDIT{titre} invisible">#TITRE</h2>
+	</header>
+</article>
+
+	[<aside>(#GET{image}|!={non}|oui)
+	<INCLURE{fond=inclure/einzeldarstellung,env,ajax,afficher_image=#GET{afficher_image}}/>
+	</aside>]
+</BOUCLE_content>
+
