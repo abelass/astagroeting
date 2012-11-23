@@ -3,10 +3,27 @@
 #SET{videos,#GET{video_dist}|array_merge{#GET{video_local}}}
 
 <div id="Einzeldarstellung">
+<B_documents_videos>    
+    <div class="numberList pagination">[(#PAGINATION{simple}|sinon{1})]</div>   
+<BOUCLE_documents_videos(DOCUMENTS) {extension IN #GET{videos}}{id_article}{vu=non}{par num titre, date}{pagination}>#SET{video,oui}
+     [(#ENV{id_art}|=={#ID_ARTICLE}|oui) #SET{video,active}
+         
+              #MODELE{video_local,play=true,menu=false}
+              [(#GET{image}|=={non}|oui)      
+                   <div class="einzelText">
+                        [(#SURTITRE)<br/>]                      
+                        [(#GET{titre})<br/>]
+                        [(#GET{date}|affdate{Y})]
+                        [(#TEXTE)<br/>]     
+                   </div>
+                ]                           
+          ]
+   </BOUCLE_documents_videos>          
+    
 <BOUCLE_article(ARTICLES){id_article}>#SET{date,#DATE}	
 	<B_img>
 		<div class="numberList pagination">[(#PAGINATION{simple}|sinon{1})]</div>			
-		<BOUCLE_img(DOCUMENTS){id_article}{extension IN png,jpg,gif}{pagination 1}{si #ENV{afficher_image}|!={non}|oui}{mode=document}{!par date}{doublons}>
+		<BOUCLE_img(DOCUMENTS){id_article}{extension IN png,jpg,gif}{pagination 1}{si #ENV{afficher_image}|!={non}|oui|et{#GET{video}|non}}{mode=document}{!par date}{doublons}>
 		[(#FICHIER|image_reduire{500,*}|inserer_attribut{alt,#FICHIER})]
 		</BOUCLE_img>
 	<//B_img>

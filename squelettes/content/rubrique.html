@@ -33,10 +33,10 @@
 	]
 	#SET{height,*}
 	#SET{date,#DATE}	
-		<BOUCLE_documents_videos(DOCUMENTS) {extension IN #GET{videos}}{id_article}{vu=non}{par num titre, date}>#SET{video,oui}
+		<BOUCLE_documents_videos(DOCUMENTS) {extension IN #GET{videos}}{id_article}{vu=non}{par num titre, date}{si #ENV{class}|=={Works}|non}>#SET{video,oui}
 			[(#ENV{id_art}|=={#ID_ARTICLE}|oui)	#SET{video,active}
-				<li>
-								#MODELE{video_local,play=true,menu=false}
+				<li id="art_#ID_ARTICLE">
+					#MODELE{video_local,play=true,menu=false}
 					[(#GET{image}|=={non}|oui)<aside>		
 						<div class="einzelText">
 							[(#SURTITRE)<br/>]						
@@ -48,7 +48,7 @@
 				</li>]
 		</BOUCLE_documents_videos>		
 		<BOUCLE_document(DOCUMENTS){id_article}{extension IN png,jpg,gif}{!par date}{0,1}>
-			<li id="art_#ID_ARTICLE">
+			<li [(#ENV{id_art}|!=={#ID_ARTICLE}|oui)id="art_#ID_ARTICLE"]>
 				[(#GET{video}|!={active}|oui)<a class="[(#GET{video}|non) ajax]" href="[(#SELF|parametre_url{id_article,#ID_ARTICLE}|parametre_url{id_art,#ID_ARTICLE})]#art_#ID_ARTICLE">
 				
 				[(#WIDTH|oui)#SET{width,#WIDTH}]
