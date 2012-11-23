@@ -1,0 +1,9 @@
+
+
+<BOUCLE_principale_rubrique(RUBRIQUES){id_rubrique}{tout}>
+	#SET{titre,Performance}
+	[(#ID_RUBRIQUE|in_array{#LISTE{2,6,7}}|oui)#SET{titre,Works}]
+	[(#COMPOSITION|=={texte}|oui)#SET{titre,''}]
+<INCLURE{fond=structure,env,id_secteur=#ID_SECTEUR,type-page=rubrique,composition=#COMPOSITION,class=#GET{titre}} />
+</BOUCLE_principale_rubrique>
+

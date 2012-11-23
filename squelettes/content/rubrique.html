@@ -1,0 +1,98 @@
+#SET{video_dist,#ARRAY{0,dist_daily,1,dist_vimeo,2,dist_youtu}}
+#SET{video_local,#ARRAY{0,flv,1,ogg,2,mp4}}
+#SET{videos,#GET{video_dist}|array_merge{#GET{video_local}}}
+
+#SET{width,320}
+#SET{height,*}
+#SET{afficher_image,non}
+#SET{image,non}	
+[(#ENV{class}|=={Works}|oui)
+	#SET{width,200}
+	#SET{afficher_image,oui}
+	#SET{image,oui}
+	]
+
+<BOUCLE_content(RUBRIQUES){id_rubrique}{tout}>
+<article class="content-principal">
+
+	<header class="cartouche">
+		<h2 class="h2 #EDIT{titre} invisible">#TITRE</h2>		
+	</header>
+
+</article>
+
+<B_articles>
+<nav>	
+	<ul id="projectsList">
+	<BOUCLE_articles(ARTICLES){id_rubrique}{!par date}>#SET{video,''}
+	#SET{titre,#TITRE}	
+	[(#ENV{class}|=={Works}|oui)
+	#SET{width,200}
+	#SET{afficher_image,oui}
+	#SET{image,oui}
+	]
+	#SET{height,*}
+	#SET{date,#DATE}	
+		<BOUCLE_documents_videos(DOCUMENTS) {extension IN #GET{videos}}{id_article}{vu=non}{par num titre, date}>#SET{video,oui}
+			[(#ENV{id_art}|=={#ID_ARTICLE}|oui)	#SET{video,active}
+				<li>
+								#MODELE{video_local,play=true,menu=false}
+					[(#GET{image}|=={non}|oui)<aside>		
+						<div class="einzelText">
+							[(#SURTITRE)<br/>]						
+							[(#GET{titre})<br/>]
+							[(#GET{date}|affdate{Y})]
+							[(#TEXTE)<br/>]		
+						</div>
+					</aside>]							
+				</li>]
+		</BOUCLE_documents_videos>		
+		<BOUCLE_document(DOCUMENTS){id_article}{extension IN png,jpg,gif}{!par date}{0,1}>
+			<li id="art_#ID_ARTICLE">
+				[(#GET{video}|!={active}|oui)<a class="[(#GET{video}|non) ajax]" href="[(#SELF|parametre_url{id_article,#ID_ARTICLE}|parametre_url{id_art,#ID_ARTICLE})]#art_#ID_ARTICLE">
+				
+				[(#WIDTH|oui)#SET{width,#WIDTH}]
+				[(#HEIGHT|oui)#SET{height,#HEIGHT}]
+				
+				[(#FICHIER|image_reduire{#GET{width},#GET{height}}|inserer_attribut{alt,#FICHIER})]</a>
+					[(#GET{image}|=={non}|oui|et{#ENV{id_art}|=={#ID_ARTICLE}|oui})<aside>		
+						<div class="einzelText">
+							[(#SURTITRE)<br/>]						
+							[(#GET{titre})<br/>]
+							[(#GET{date}|affdate{Y})]
+							[(#TEXTE)<br/>]		
+						</div>
+					</aside>]]	
+			</li>
+			
+		</BOUCLE_document>
+	
+	</BOUCLE_articles>
+	</ul>
+</nav>
+</B_articles>
+
+
+	[<aside>(#GET{image}|!={non}|oui)
+	<INCLURE{fond=inclure/einzeldarstellung,env,ajax,afficher_image=#GET{afficher_image}}/></aside>]
+
+<B_documents_audio>
+<aside>
+	<ul id="audio">
+		<BOUCLE_documents_audio(DOCUMENTS) {extension IN mp3}{id_rubrique} {vu=non}{!par date}>
+		<li>
+			<object type="application/x-shockwave-flash" data="#CHEMIN{players/silk_button/emff_silk_button.swf}" height="16" width="16">
+				<param name="movie" value="#CHEMIN{css/img/emff_silk_button.swf}">
+				<param name="bgcolor" value="#ffffff">
+				<param name="FlashVars" value="src=#CHEMIN{#FICHIER}">
+			</object>	
+			#TITRE, [(#DATE|affdate{Y})]<br/>
+			[(#DESCRIPTIF**)]
+		</li>
+		</BOUCLE_documents_audio>
+	</ul>
+</aside>	
+</B_documents_audio>	
+
+</BOUCLE_content>
+

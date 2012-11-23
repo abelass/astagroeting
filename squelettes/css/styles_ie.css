@@ -1,0 +1,56 @@
+/* -- CSS definition for ASTA GR…TING by Maria Linares --- */
+a img
+{
+  border:none;
+}
+
+body{width:100%}
+.buchlein {
+	padding-top:10px;
+	padding-left:0px;
+}
+
+#main-content {
+	position:absolute;
+	left:0px;
+}
+
+#main-contentPerformance {
+	padding-left:200px;
+}
+
+.iframe {
+	width:100%;
+	height:500px;
+}
+
+#projectsList {
+	width:360px;
+}
+
+#Captions {
+	position:absolute;
+	left:200px;
+	top:70px;
+}
+
+#Captions li {
+	margin:0 0 69px 0;
+	padding:0;
+	height:268px;
+}
+
+.iframePerformance {
+	width:600px;
+}
+
+.klein {
+	font-size:80%;
+}
+
+
+#projectsList li a img, #projectsList li a:link img, #projectsList li a:visited img{
+    color:white;
+    text-decoration: none;
+}
+
