@@ -49,7 +49,7 @@
 				</li>]]
 		</BOUCLE_documents_videos>		
 		<BOUCLE_document(DOCUMENTS){id_article}{extension IN png,jpg,gif}{!par date}{0,1}>
-		[(#ENV{class}|=={Works}|non|et{#ENV{id_art}|=={#ID_ARTICLE}}|non)
+		[(#ENV{class}|=={Works}|non|et{#ENV{id_art}|=={#ID_ARTICLE}}|non|ou{#GET{video}|non})
 			<li id="art_#ID_ARTICLE">
 				<a class="[(#GET{video}|non) ajax]" href="[(#SELF|parametre_url{id_article,#ID_ARTICLE}|parametre_url{id_art,#ID_ARTICLE})]#art_#ID_ARTICLE">
 				
