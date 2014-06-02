@@ -30,13 +30,13 @@ style='[(#ENV{align}|match{^(left|right)$}|?{' '})float:#ENV{align};] (#ENV{alig
 		style='width:#GET{largeur}px;height:#GET{hauteur}px;margin:0 auto;overflow:hidden;'
 		class='video_placeholder'
 	><video
-		src="#FICHIER"
+		src="[(#URL_DOCUMENT|url_absolue)]"
 		height="#GET{hauteur}"
 		width="#GET{largeur}"
 		poster="[(#LOGO_DOCUMENT{vignette}|image_reduire{#GET{largeur},#GET{hauteur}}|extraire_attribut{src})]"
 		class="video-jwplayer"
 		data-player="{
-			file:'#FICHIER',
+			file:'[(#URL_DOCUMENT|url_absolue)]',
 			height:#GET{hauteur},
 			width:#GET{largeur},
 			wmode: 'window',
