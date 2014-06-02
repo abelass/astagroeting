@@ -2,9 +2,19 @@
 *.pyc
 *.pyo
 .svn
+<<<<<<< HEAD
 _svn
 IMG
 dump
 local
 tmp
 config.php
+=======
+IMG
+_svn
+connnect.php
+local
+tmp
+config/connect.php
+dump
+>>>>>>> 1aecbcc8e26a176aa5df1fa0d3a0c63ab53687ec
