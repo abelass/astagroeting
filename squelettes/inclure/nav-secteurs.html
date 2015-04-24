@@ -7,7 +7,7 @@
 <B_rubriques>
 
 	<ul id="navi">
-	<BOUCLE_rubriques(RUBRIQUES) {racine} {id_rubrique !IN 16,15,18}{par num titre, titre}{tout}>
+	<BOUCLE_rubriques(RUBRIQUES) {racine} {id_rubrique !IN 16,15,18,19,20}{par num titre, titre}{tout}>
 		<li class="item menu-entree">
 			<a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>[(#TITRE|couper{80})]</a>
 			<B_articles>
@@ -44,7 +44,7 @@
 
 		</li>
 	</BOUCLE_rubriques>
-	<BOUCLE_rub_ext(RUBRIQUES){id_rubrique IN 16,15}{tout}>
+	<BOUCLE_rub_ext(RUBRIQUES){id_rubrique IN 16,15,19,20}{tout}{par num titre}>
 		<li class="text">
 			<a href="#URL_RUBRIQUE">#TITRE</a>
 		</li>
