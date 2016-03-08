@@ -1,8 +1,17 @@
+#SET{video_dist,#ARRAY{0,dist_daily,1,dist_vimeo,2,dist_youtu}}
+#SET{video_local,#ARRAY{0,flv,1,ogg,2,mp4}}
+#SET{videos,#GET{video_dist}|array_merge{#GET{video_local}}}
 <BOUCLE_content(RUBRIQUES){id_rubrique=18}{tout}>
 <article class="content-principal">
 	<header class="cartouche">
 		<h2 class="h2 #EDIT{titre} invisible">#TITRE</h2>
 	</header>
 </article>
-	[<aside>(#TEXTE)</aside>]
+<aside>
+      #TEXTE
+      
+      <BOUCLE_documents_videos(DOCUMENTS) {extension IN #GET{videos}}{id_rubrique}{vu=non}{par num titre, date}>#SET{video,oui}	    
+      <div>#MODELE{video_local,play=true,menu=false}</div>
+    </BOUCLE_documents_videos>     
+</aside>
 </BOUCLE_content>
