@@ -11,7 +11,7 @@
       #TEXTE
       
       <BOUCLE_documents_videos(DOCUMENTS) {extension IN #GET{videos}}{id_rubrique}{vu=non}{par num titre, date}>#SET{video,oui}	    
-      <div>#MODELE{video_local,play=true,menu=false}</div>
+      #MODELE{video_local,play=true,menu=false}
     </BOUCLE_documents_videos>     
 </aside>
 </BOUCLE_content>
